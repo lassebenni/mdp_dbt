@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_repos
+    description: This model contains information with regards to the repositories of these public projects. <br>For data quality information please visit https://cloud.soda.io/datasets/fcfc470c-bfd5-41d2-9b25-177953feed15/columns
+
+  - name: stg_projects
+    description: This model contains information with regards to the projects of public software components in different distribution platforms. <br>For data quality information please visit https://cloud.soda.io/datasets/3da02327-83ec-4d23-ab3f-c1a428ab23a8/columns
+
+  - name: stg_dependencies
+    description: This model contains information regarding the dependencies of the projects in a one project to many dependencies relation. <br>For data quality information please visit https://cloud.soda.io/datasets/813d8e9c-380a-4870-9035-b6a85878f828/columns
+
+  - name: stg_repository_dependencies
+    description: This model contains is a pre-build joint version of repositories and dependencies. <br>For data quality information please visit https://cloud.soda.io/datasets/a2b4d11c-601a-424a-be4a-c2129606b276/columns
+
+  - name: stg_versions
+    description: This model contains information regarding the versions of the projects and the release information. <br>For data quality information please visit https://cloud.soda.io/datasets/2c02e76c-8ebe-473f-a71e-e665edea5f00/columns
+
+  - name: int_project_versions
+    description: Intermediate model for project versions. <br>For data quality information please visit https://cloud.soda.io/datasets/3c10d1d0-69c3-4a3b-97ff-458b593b78a2/columns
+
+  - name: int_project_repos
+    description: Intermediate model for project repos. <br>For data quality information please visit https://cloud.soda.io/datasets/edf026b3-654f-4428-85a8-0979e755c2e8/columns
+
+  - name: analytics
+    description: Mart table for analytics reporting. <br>For data quality information please visit https://cloud.soda.io/datasets/82ae255a-d314-4138-9882-2640856bffe2/columns
+
+  - name: project_repos
+    description: Mart table for project and repository information. <br>For data quality information please visit https://cloud.soda.io/datasets/a46f1f90-d9c3-438c-afb2-1c3df6cbf53d/columns
+
+  - name: project_versions
+    description: Mart table for project versions. <br>For data quality information please visit https://cloud.soda.io/datasets/6e7989f7-0a9c-44b7-97a8-c1fa3521263f/columns

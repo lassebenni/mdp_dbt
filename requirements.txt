@@ -1,0 +1,4 @@
+dbt-bigquery==1.1.0
+google-cloud-bigquery-storage==2.13.1
+pyarrow==5.0.0
+soda-sql-bigquery==2.1.9
