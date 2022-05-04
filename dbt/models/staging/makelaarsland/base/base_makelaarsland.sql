@@ -1,5 +1,3 @@
-
-
 with source as (
     select * from {{ source('bigquery', 'makelaarsland_raw') }}
 )
@@ -61,7 +59,7 @@ select
     json_extract_scalar(json_extract(_airbyte_data,"$['_ab_additional_properties']"), "$['bathroom_amenities']") as bathroom_amenities,
     json_extract_scalar(json_extract(_airbyte_data,"$['_ab_additional_properties']"), "$['living_size']") as living_size,
     json_extract_scalar(_airbyte_data, "$['_ab_source_file_last_modified']") as _ab_source_file_last_modified,
-    _airbyte_ab_id,
+    _airbyte_ab_id as id,
     _airbyte_emitted_at,
     CURRENT_TIMESTAMP() as _airbyte_normalized_at
 from source
