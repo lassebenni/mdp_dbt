@@ -1,10 +1,8 @@
-
 .venv
-dbt/dbt_packages/dbt_utils
-dbt/target
-dbt/.env
-dbt/logs
-
-dbt/dbt_packages/codegen
-dbt/.user.yml
-dbt/.DS_Store
+dbt_packages
+.env
+.user.yml
+.DS_Store
+logs
+target
+.env
