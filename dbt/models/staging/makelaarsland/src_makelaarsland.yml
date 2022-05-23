@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: bigquery
-    schema: airbyte_makelaarsland
-    database: lassebenninga
+    schema: makelaarsland
+    database: analytics-engineers
     tables:
       - name: makelaarsland_raw
         identifier: _airbyte_raw_makelaarsland
