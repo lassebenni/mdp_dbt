@@ -3,12 +3,6 @@ models:
   - name: stg_makelaarsland
     description: ""
     columns:
-      - name: id
-        description: ""
-        tests:
-          - unique
-          - not_null
-
       - name: url
         description: ""
 
@@ -22,12 +16,6 @@ models:
         description: ""
 
       - name: floor
-        description: ""
-
-      - name: brands
-        description: ""
-
-      - name: garden
         description: ""
 
       - name: plaats

@@ -21,15 +21,6 @@ models:
       - name: price
         description: ""
 
-      - name: brands
-        description: ""
-
-      - name: garden
-        description: ""
-
-      - name: plaats
-        description: ""
-
       - name: status
         description: ""
 
@@ -42,43 +33,19 @@ models:
       - name: parking
         description: ""
 
-      - name: storage
-        description: ""
-
-      - name: zijtuin
-        description: ""
-
-      - name: capacity
-        description: ""
-
-      - name: date_tmp
-        description: ""
-
       - name: delivery
         description: ""
 
       - name: location
         description: ""
 
-      - name: voortuin
-        description: ""
-
       - name: amenities
-        description: ""
-
-      - name: back_yard
         description: ""
 
       - name: isolation
         description: ""
 
-      - name: plot_area
-        description: ""
-
       - name: build_year
-        description: ""
-
-      - name: house_type
         description: ""
 
       - name: streetname
@@ -87,28 +54,16 @@ models:
       - name: warm_water
         description: ""
 
-      - name: garage_type
+      - name: living_size
         description: ""
 
       - name: postal_code
-        description: ""
-
-      - name: sun_terrace
-        description: ""
-
-      - name: build_period
-        description: ""
-
-      - name: energy_class
         description: ""
 
       - name: heating_type
         description: ""
 
       - name: outside_size
-        description: ""
-
-      - name: patio_atrium
         description: ""
 
       - name: rooms_amount
@@ -120,16 +75,10 @@ models:
       - name: kvk_insurance
         description: ""
 
-      - name: bijzonderheden
-        description: ""
-
       - name: appartment_type
         description: ""
 
       - name: balcony_terrace
-        description: ""
-
-      - name: garden_location
         description: ""
 
       - name: kvk_repair_plan
@@ -150,20 +99,15 @@ models:
       - name: kvk_reserve_funds
         description: ""
 
-      - name: other_inhoouse_spaces
-        description: ""
-
-      - name: kvk_monthly_payment
+      - name: bathroom_amenities
         description: ""
 
       - name: kvk_yearly_meeting
         description: ""
 
-      - name: bathroom_amenities
+      - name: _ab_source_file_url
         description: ""
 
-      - name: living_size
+      - name: kvk_monthly_payment
         description: ""
 
-      - name: id
-        description: ""
