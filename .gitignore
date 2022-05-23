@@ -1,5 +1,4 @@
 .venv
-dbt_packages
 .env
 .user.yml
 .DS_Store
