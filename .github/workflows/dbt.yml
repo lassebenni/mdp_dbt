@@ -4,8 +4,8 @@ on:
   push:
 
 jobs:
-  airflow:
-    name: "Airflow"
+  dbt:
+    name: "Run dbt"
     runs-on: ubuntu-latest
     permissions:
       contents: "read"
@@ -17,7 +17,7 @@ jobs:
       - id: "auth"
         uses: "google-github-actions/auth@v0"
         with:
-          workload_identity_provider: "projects/303639907957/locations/global/workloadIdentityPools/identity-pool/github"
+          workload_identity_provider: "projects/303639907957/locations/global/workloadIdentityPools/identity-pool/providers/github"
           service_account: "bigquery@analytics-engineers.iam.gserviceaccount.com"
       - name: dbt-action
         id: dbt-run
