@@ -6,4 +6,4 @@ sources:
     database: analytics-engineers
     tables:
       - name: makelaarsland_raw
-        identifier: _airbyte_raw_makelaarsland
+        identifier: makelaarsland
