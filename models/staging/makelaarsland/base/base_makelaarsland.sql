@@ -24,7 +24,7 @@ renamed as (
         build_year,
         streetname,
         warm_water,
-        living_size,
+        CAST(NULLIF(living_size,'') AS NUMERIC) as living_size,
         postal_code,
         heating_type,
         outside_size,
