@@ -1,9 +1,0 @@
-name: bigquery
-connection:
-  type: bigquery
-  account_info_json: env_var(BIGQUERY_ACCOUNT_INFO)
-  auth_scopes:
-    - https://www.googleapis.com/auth/bigquery
-    - https://www.googleapis.com/auth/cloud-platform
-    - https://www.googleapis.com/auth/drive
-  dataset: airbyte_makelaarsland
