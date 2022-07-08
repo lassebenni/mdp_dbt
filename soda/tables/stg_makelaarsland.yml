@@ -1,0 +1,59 @@
+table_name: stg_makelaarsland
+metrics:
+  - row_count
+  - missing_count
+  - missing_percentage
+  - values_count
+  - values_percentage
+  - invalid_count
+  - invalid_percentage
+  - valid_count
+  - valid_percentage
+  - avg_length
+  - max_length
+  - min_length
+  - avg
+  - sum
+  - max
+  - min
+  - stddev
+  - variance
+tests:
+  - row_count > 0
+columns:
+  id:
+    valid_format: uuid
+    tests:
+      - invalid_percentage == 0
+  date:
+    valid_format: date_inverse
+    tests:
+      - invalid_percentage == 0
+  volume:
+    valid_format: number_money_usd
+    tests:
+      - invalid_percentage <= 5
+  date_tmp:
+    valid_format: date_inverse
+    tests:
+      - invalid_percentage == 0
+  build_year:
+    valid_format: number_decimal_point
+    tests:
+      - invalid_percentage <= 11
+  rooms_amount:
+    valid_format: number_money_usd
+    tests:
+      - invalid_percentage <= 5
+  floors_amount:
+    valid_format: number_money_usd
+    tests:
+      - invalid_percentage <= 20
+  bathrooms_amount:
+    valid_format: number_money_usd
+    tests:
+      - invalid_percentage <= 15
+  living_size:
+    valid_format: number_money_usd
+    tests:
+      - invalid_percentage <= 5
