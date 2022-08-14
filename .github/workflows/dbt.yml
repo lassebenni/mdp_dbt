@@ -1,6 +1,7 @@
 name: "Run dbt job"
 on:
   pull_request:
+  workflow_dispatch:
   push:
 
 jobs:
