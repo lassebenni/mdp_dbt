@@ -34,3 +34,4 @@ jobs:
           message: |
             echo "${{ steps.dbt-build.outputs.result }}"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
