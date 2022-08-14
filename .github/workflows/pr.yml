@@ -1,0 +1,36 @@
+name: "Pull Request"
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  dbt:
+    name: "Run dbt"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: "read"
+      id-token: "write"
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+      - id: "auth"
+        uses: "google-github-actions/auth@v0"
+        with:
+          workload_identity_provider: "projects/303639907957/locations/global/workloadIdentityPools/identity-pool/providers/github"
+          service_account: "bigquery@analytics-engineers.iam.gserviceaccount.com"
+      - name: dbt-action
+        id: dbt-build
+        uses: mwhitaker/dbt-action@master
+        with:
+          dbt_command: "dbt build --profiles-dir ."
+      - name: Get the result
+        if: ${{ always() }}
+        run: echo "${{ steps.dbt-build.outputs.result }}"
+        shell: bash
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: |
+            echo "${{ steps.dbt-build.outputs.result }}"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
