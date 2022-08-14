@@ -21,15 +21,39 @@ jobs:
         uses: mwhitaker/dbt-action@master
         with:
           dbt_command: "dbt build --profiles-dir ."
+      - name: Pretty the log results
+        if: ${{ always() }}
+        id: pretty_log
+        run: python utils/clean_dbt_log.py
+      - name: Cat the pretty log
+        if: ${{ always() }}
+        id: cat
+        run: cat ./dbt.log
       - name: Get log results
         if: ${{ always() }}
         id: log
-        run: echo ::set-output name=body::$(cat ./logs/dbt.log )
-      - name: Comment results in PR
-        if: ${{ always() }}
-        uses: thollander/actions-comment-pull-request@v1
-        with:
-          message: |
-            echo ${{ steps.log.outputs.body }}
+        run: echo ::set-output name=body::$(cat ./dbt.log )
+      # - name: Comment results in PR
+      #   uses: actions/github-script@v4
+      #   if: ${{ always() }}
+      #   with:
+      #     github-token: ${{secrets.GITHUB_TOKEN}}
+      #     script: |
+      #       github.issues.createComment({
+      #         issue_number: context.issue.number,
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         body: ${{ steps.log.outputs.body }}
+      #       })
+      - name: Add comment to PR
+        env:
+          URL: ${{ github.event.pull_request.comments_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl \
+            -X POST \
+            $URL \
+            -H "Content-Type: application/json" \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            --data '{ "body": Hello! }'
 
