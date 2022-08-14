@@ -21,11 +21,15 @@ jobs:
         uses: mwhitaker/dbt-action@master
         with:
           dbt_command: "dbt build --profiles-dir ."
+      - name: Get log results
+        if: ${{ always() }}
+        id: log
+        run: echo ::set-output name=body::$(cat ${{ env.DBT_LOG_PATH }} )
       - name: Comment results in PR
         if: ${{ always() }}
         uses: thollander/actions-comment-pull-request@v1
         with:
           message: |
-            echo "${{ steps.dbt-build.outputs.result }}"
+            echo ${{ steps.log.outputs.body }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
