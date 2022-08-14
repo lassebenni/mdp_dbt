@@ -24,7 +24,7 @@ jobs:
       - name: Get log results
         if: ${{ always() }}
         id: log
-        run: echo ::set-output name=body::$(cat ${{ env.DBT_LOG_PATH }} )
+        run: echo ::set-output name=body::$(cat ./logs/dbt.log )
       - name: Comment results in PR
         if: ${{ always() }}
         uses: thollander/actions-comment-pull-request@v1
