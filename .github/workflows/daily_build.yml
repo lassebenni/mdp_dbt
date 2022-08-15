@@ -1,16 +1,13 @@
-name: "Run dbt job"
+name: "Pull Request"
 on:
-  pull_request:
-  workflow_dispatch:
-  push:
+  schedule:
+    - cron: "16 7 * * *" # every day at 7:16 am
 
 jobs:
   dbt:
     name: "Run dbt"
     runs-on: ubuntu-latest
-    permissions:
-      contents: "read"
-      id-token: "write"
+    permissions: write-all
 
     steps:
       - name: "Checkout"
@@ -21,7 +18,8 @@ jobs:
           workload_identity_provider: "projects/303639907957/locations/global/workloadIdentityPools/identity-pool/providers/github"
           service_account: "bigquery@analytics-engineers.iam.gserviceaccount.com"
       - name: dbt-action
-        id: dbt-run
+        id: dbt-build
         uses: mwhitaker/dbt-action@master
         with:
           dbt_command: "dbt build --profiles-dir ."
+
